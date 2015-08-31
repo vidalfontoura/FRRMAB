@@ -1,0 +1,10 @@
+rm -rf build/*
+clear
+[H[2Jjavac  -cp chesc.jar -d build/ src/*/*.java
+java -cp chesc.jar:build main.Main
+Seed: 1438363830181
+Scaling Factor: 10.0
+Problema: Personnel Scheduling instancia: 11 timeLimit: 600000
+Acceptance: Monte Carlo
+Solução inicial: 230177.0
+IterMAx: 62

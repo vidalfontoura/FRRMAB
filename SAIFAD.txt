@@ -1,0 +1,95 @@
+javac  -cp chesc.jar -d build/ src/*/*.java
+Note: src/selection/mabSelection.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+java -cp chesc.jar:build main.Main
+Seed: 1438610117703
+Scaling Factor: 0.002
+Problema: SAT instancia: 3 timeLimit: 600000
+Acceptance: Monte Carlo
+Solução inicial: 305.0
+IterMAx: 5128
+Heurísticabp1: 0 4072 15,25%
+Heurísticabp1: 1 3967 14,86%
+Heurísticabp1: 2 1426 5,34%
+Heurísticabp1: 3 1118 4,19%
+Heurísticabp1: 4 854 3,20%
+Heurísticabp1: 5 1340 5,02%
+Heurísticabp1: 6 824 3,09%
+Heurísticabp1: 7 3820 14,31%
+Heurísticabp1: 8 1511 5,66%
+Heurísticabp1: 9 3492 13,08%
+Heurísticabp1: 10 4270 16,00%
+XValores heuristicas
+H0 q: 0.004366759110592128 n:12.0
+H1 q: 0.0011904761904761904 n:6.0
+H2 q: 0.0015343915343915347 n:8.0
+H3 q: 0.0017510406528585339 n:11.0
+H4 q: 0.0 n:3.0
+H5 q: 0.001588085827216262 n:7.0
+H6 q: 0.0 n:3.0
+H7 q: 0.002791610283380945 n:27.0
+H8 q: 0.0 n:2.0
+H9 q: 0.002439209236326109 n:15.0
+H10 q: 0.0 n:6.0
+Window:
+0 0 0 6 8 0 0 1 5 2 2 2 2 2 2 9 9 9 9 4 6 8 10 9 9 9 9 9 9 9 9 9 10 10 10 10 7 7 7 7 7 7 7 7 7 4 7 6 3 3 3 3 3 7 7 7 7 7 7 7 7 7 7 7 7 7 7 1 7 7 1 1 1 1 10 7 3 3 3 3 3 2 4 5 5 5 5 5 5 0 2 3 9 9 0 0 0 0 0 0 
+
+Heurísticabp2: 0 1506 14,90%
+Heurísticabp2: 1 1550 15,33%
+Heurísticabp2: 2 694 6,87%
+Heurísticabp2: 3 411 4,07%
+Heurísticabp2: 4 303 3,00%
+Heurísticabp2: 5 521 5,15%
+Heurísticabp2: 6 288 2,85%
+Heurísticabp2: 7 1428 14,13%
+Heurísticabp2: 8 564 5,58%
+Heurísticabp2: 9 1452 14,36%
+Heurísticabp2: 10 1392 13,77%
+XValores heuristicas
+H0 q: 0.0026347136492787084 n:30.0
+H1 q: 0.001488095238095238 n:7.0
+H2 q: 0.0 n:3.0
+H3 q: 0.0 n:3.0
+H4 q: 0.0 n:3.0
+H5 q: 0.0 n:3.0
+H6 q: 0.0 n:3.0
+H7 q: 0.0025265901741940936 n:26.0
+H8 q: 0.0 n:2.0
+H9 q: 0.0 n:3.0
+H10 q: 0.002370882993720364 n:17.0
+Window:
+8 2 8 1 1 6 1 9 9 1 7 2 3 4 5 6 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 4 7 7 7 3 4 5 7 7 7 10 10 10 10 10 10 10 10 10 10 10 10 2 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 0 3 5 0 0 10 10 10 10 10 0 0 1 0 1 1 
+
+Número de restarts: 0
+Número de iterações executadas: 66170
+Ultima iteração onde um ótimo foi encontrado: 51730
+Vezes usada: 
+Heurística: 0 9857.0 14,90% Tempo 292453ms
+Heurística: 1 10035.0 15,17% Tempo 292131ms
+Heurística: 2 4002.0 6,05% Tempo 2222ms
+Heurística: 3 2597.0 3,92% Tempo 298ms
+Heurística: 4 1933.0 2,92% Tempo 143ms
+Heurística: 5 3407.0 5,15% Tempo 652ms
+Heurística: 6 1867.0 2,82% Tempo 161ms
+Heurística: 7 9421.0 14,24% Tempo 8792ms
+Heurística: 8 3666.0 5,54% Tempo 1174ms
+Heurística: 9 9256.0 13,99% Tempo 463ms
+Heurística: 10 10129.0 15,31% Tempo 485ms
+XValores heuristicas
+H0 q: 0.006944444444444444 n:11.0
+H1 q: 0.002830204072440097 n:18.0
+H2 q: 0.001289483463396507 n:4.0
+H3 q: 0.0 n:2.0
+H4 q: 0.0 n:2.0
+H5 q: 0.0011467889908256881 n:6.0
+H6 q: 0.0 n:2.0
+H7 q: 0.0 n:6.0
+H8 q: 0.0026299672797190548 n:8.0
+H9 q: 0.003171898301953225 n:16.0
+H10 q: 0.003543705658807815 n:25.0
+Window:
+9 9 9 9 9 9 9 1 1 1 1 1 1 1 1 1 1 1 10 1 1 1 1 7 7 7 7 7 1 1 0 9 9 9 9 0 5 5 5 5 1 9 2 9 9 7 9 5 4 6 2 2 2 9 5 8 8 8 8 8 8 8 10 10 10 10 10 10 10 10 10 10 10 10 3 4 6 10 10 10 10 10 10 10 10 10 3 10 8 10 10 0 0 0 0 0 0 0 0 0 
+Melhor Solução: 2.0
+cat run.sh >run 
+chmod a+x run
+

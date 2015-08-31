@@ -1,0 +1,25 @@
+if (delta > 0) {
+                problem.copySolution(1, 0);
+                if (newFitness < bestFitness) {
+
+                    totalNumOfNewBestFound++;
+
+                    /* Update the best fitness value */
+                    bestFitness = newFitness;
+                    lastIterationBest = numberOfIterations;
+                    /* Change randomly one of the solution used for crossovers (or any heuristic requiring two solutions) */
+                    int randMemIndex = rng.nextInt(5) + 5;
+                    problem.copySolution(1, randMemIndex);
+
+                    /* Copy the new best solution to the solution memory */
+                    problem.copySolution(0, 10);
+                }
+                currentFitness = newFitness;
+            } else {
+                //if there is not an improvement in solution quality then we accept the solution with a 50% probability
+                if (rng.nextBoolean()) {
+                    //the process for 'accepting' a solution is the same as above
+                    currentFitness = newFitness;
+                    problem.copySolution(1, 0);
+                }
+            }
