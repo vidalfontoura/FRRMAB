@@ -9,8 +9,10 @@ import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
 import moveAcceptance.AcceptanceCriterion;
 import moveAcceptance.AdaptiveIterationLimitedListBasedTA;
+import moveAcceptance.AllMoves;
 import moveAcceptance.BetterEqual;
-import moveAcceptance.MonteCarlo;
+import moveAcceptance.NaiveAcceptance;
+import moveAcceptance.OnlyBetter;
 import moveAcceptance.SimulatedAnnealing;
 import selection.SelectionMethod;
 import selection.mabSelection;
@@ -94,21 +96,24 @@ public class MABHH extends HyperHeuristic {
     private void initializeMoveAcceptance() {
         switch (this.acceptanceType) {
             case 1:
+                acceptance = new AllMoves(rng);
+                System.out.println("Acceptance: All Moves");
+                break;
+            case 2:
                 acceptance = new BetterEqual(rng);
                 System.out.println("Acceptance: Better Equal");
                 break;
-            case 2:
-                acceptance = new AdaptiveIterationLimitedListBasedTA(Vars.aillaListSize, Double.MAX_VALUE,
-                        Vars.aillaAdaptationLimitMultiplier, totalExecTime, rng);
-                System.out.println("Acceptance: AILLA");
-                break;
             case 3:
+                acceptance = new OnlyBetter(rng);
+                System.out.println("Acceptance: Only Better");
+                break;
+            case 4:
                 acceptance = new SimulatedAnnealing(rng);
                 System.out.println("Acceptance: Simulated Annealing");
                 break;
             default:
-                System.out.println("Acceptance: Monte Carlo");
-                acceptance = new MonteCarlo(rng);
+                System.out.println("Acceptance: Naive Acceptance");
+                acceptance = new NaiveAcceptance(rng);
         }
     }
 

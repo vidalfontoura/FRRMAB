@@ -11,9 +11,9 @@ import java.util.Random;
  *
  * @author asferreira
  */
-public class MonteCarlo extends AcceptanceCriterion {
+public class NaiveAcceptance extends AcceptanceCriterion {
 
-    public MonteCarlo(Random r) {
+    public NaiveAcceptance(Random r) {
         super(r);
     }
 
