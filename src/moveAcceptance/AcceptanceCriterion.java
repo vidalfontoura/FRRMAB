@@ -21,6 +21,7 @@ package moveAcceptance;
 
 import java.io.Serializable;
 import java.util.Random;
+import util.Vars;
 
 /**
  * This class is an abstract class to implement the acceptance mechanism. It can
@@ -30,6 +31,8 @@ public abstract class AcceptanceCriterion implements Serializable {
 
     public Random r;
     public long numberOfIterationsStuck = 0;
+    public double level;
+    public double beta = 0;
 
     public AcceptanceCriterion(Random r) {
         this.r = r;
@@ -50,6 +53,14 @@ public abstract class AcceptanceCriterion implements Serializable {
 
     public long getNumberOfIterationsStuck(){
         return this.numberOfIterationsStuck;
+    }
+    
+    public void setInitialLevel(double level){
+        this.level = level;
+    }
+    
+    public void setBeta(){
+        this.beta = this.level/Vars.iterMax;
     }
     
     public void resetAcceptanceList(double newFitness) {

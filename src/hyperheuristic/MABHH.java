@@ -8,11 +8,15 @@ import be.kuleuven.kahosl.util.Print;
 import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
 import moveAcceptance.AcceptanceCriterion;
+import moveAcceptance.Adaptative;
 import moveAcceptance.AdaptiveIterationLimitedListBasedTA;
 import moveAcceptance.AllMoves;
 import moveAcceptance.BetterEqual;
+import moveAcceptance.ExponentialMonteCarlo;
+import moveAcceptance.GreatDeluge;
 import moveAcceptance.NaiveAcceptance;
 import moveAcceptance.OnlyBetter;
+import moveAcceptance.RecordToRecord;
 import moveAcceptance.SimulatedAnnealing;
 import selection.SelectionMethod;
 import selection.mabSelection;
@@ -111,6 +115,22 @@ public class MABHH extends HyperHeuristic {
                 acceptance = new SimulatedAnnealing(rng);
                 System.out.println("Acceptance: Simulated Annealing");
                 break;
+            case 5:
+                acceptance = new ExponentialMonteCarlo(rng);
+                System.out.println("Acceptance: Exponetional Monte Carlo");
+                break;
+            case 6:
+                acceptance = new GreatDeluge(rng);
+                System.out.println("Acceptance: Great Deluge");
+                break;
+            case 7:
+                acceptance = new RecordToRecord(rng);
+                System.out.println("Acceptance: Record to Record");
+                break;
+            case 8:
+                acceptance = new Adaptative(rng);
+                System.out.println("Acceptance: Adaptative");
+                break;
             default:
                 System.out.println("Acceptance: Naive Acceptance");
                 acceptance = new NaiveAcceptance(rng);
@@ -162,12 +182,11 @@ public class MABHH extends HyperHeuristic {
         long startHeur, endHeur;
         problem.initialiseSolution(0);
         problem.copySolution(0, 10);
-        problem.setDepthOfSearch(0.8);
-        problem.setIntensityOfMutation(0.8);
         //System.out.println("Tamanho da Window: " + selection.getWindowSize());
         System.out.println("Solução inicial: " + problem.getFunctionValue(0));
         bestFitness = currentFitness = newFitness = problem.getFunctionValue(0);
         acceptance.resetAcceptanceList(bestFitness);
+        acceptance.setInitialLevel(problem.getFunctionValue(0));
         /* 
          * Take a number of copies of the initial solution for using 
          * the crossover operators (or any operator requiring two solutions) 
@@ -240,6 +259,7 @@ public class MABHH extends HyperHeuristic {
                 endTime = System.currentTimeMillis() - startTime;
                 Vars.iterMax = Vars.totalExecutionTime / endTime;
                 System.out.println("IterMAx: " + Vars.iterMax);
+                acceptance.setBeta();
                 Vars.reduceTemperature = true;
                 acceptance.updateCooling();
             }
