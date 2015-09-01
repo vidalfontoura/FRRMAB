@@ -15,7 +15,7 @@ import util.Vars;
 public class Adaptative extends AcceptanceCriterion {
 
     private double adaptativeRate = 0;
-    private int nIterationsToUpdate = 25;
+    private int nIterationsToUpdate = 50;
     
     public Adaptative(Random r) {
         super(r);
@@ -27,6 +27,7 @@ public class Adaptative extends AcceptanceCriterion {
         //increase the acceptance percentage rate if the number of iteration is reacheds
         if(numberOfIterationsStuck == nIterationsToUpdate){
             adaptativeRate += 0.05;
+            numberOfIterationsStuck = 0;
         }
         //accept better
         if (newFitness < currentFitness) {
@@ -45,11 +46,12 @@ public class Adaptative extends AcceptanceCriterion {
              if (rnd < adaptativeRate) {
                 acp = true;
                 //decreases rate
-                adaptativeRate -= 0.05;
-                if(adaptativeRate < 0){
-                    adaptativeRate = 0;
-                }
+                adaptativeRate = 0;
+                //if(adaptativeRate < 0){
+                 //   adaptativeRate = 0;
+                //}
             }
+            //this.numberOfIterationsStuck++;
         }
 
         return acp;
