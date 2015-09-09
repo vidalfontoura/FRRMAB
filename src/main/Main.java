@@ -35,7 +35,7 @@ public class Main {
         int instance = 5;
         //long seed = 1234;
         long seed = System.currentTimeMillis();
-        int acc = 8;
+        int acc = 7;
         //double scalingFactor = 10.0;
         problem = new SAT(seed);
         if (args.length == 1) {

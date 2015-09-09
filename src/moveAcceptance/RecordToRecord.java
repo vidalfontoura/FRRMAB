@@ -14,7 +14,7 @@ import util.Vars;
  */
 public class RecordToRecord extends AcceptanceCriterion {
 
-    private final double D = 0.03;
+    private final double D = 0.0003;
 
     public RecordToRecord(Random r) {
         super(r);
