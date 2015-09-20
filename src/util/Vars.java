@@ -49,7 +49,7 @@ public class Vars implements Serializable {
     // windowsize
     public static double windowSize = 500;
     //Scaling Factor Autoupdate parameters
-    public static double scalingFactor = 0.0001;
+    public static double scalingFactor = 1;
     public static double scalingUpperBound = 1.0;
     public static double scalingLowerBound = 0.1;
     public static double incrementScaling = 0.1;

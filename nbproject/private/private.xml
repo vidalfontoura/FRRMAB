@@ -5,11 +5,10 @@
         <group>
             <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/hyperheuristic/MABHH.java</file>
             <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/util/Vars.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/moveAcceptance/Adaptative.java</file>
             <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/main/Main.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/moveAcceptance/RecordToRecord.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/moveAcceptance/ExponentialMonteCarlo.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/moveAcceptance/GreatDeluge.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/selection/FRRMAB.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/creditAssingment/CreditAssignment.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/selection/MabSelection.java</file>
         </group>
     </open-files>
 </project-private>

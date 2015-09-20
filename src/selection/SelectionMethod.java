@@ -24,7 +24,7 @@ import java.util.Random;
 
 import analysis.PerformanceElements;
 import hyperheuristic.HeuristicClassType;
-import selection.mabSelection.LevelOfChangeType;
+import selection.MabSelection.LevelOfChangeType;
 
 /**
  * This class is an abstract class to implement the selection mechanism. It can
@@ -72,7 +72,6 @@ public abstract class SelectionMethod implements Serializable {
      * @return	index of the selected heuristic
      */
     public abstract int selectHeuristic();
-    public abstract void setWindowSize(double size);
     public abstract void updateHeuristicValue(double delta, int heuristic, int k);
     public abstract void printWindow();
     /**

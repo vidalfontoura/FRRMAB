@@ -18,8 +18,10 @@ import moveAcceptance.NaiveAcceptance;
 import moveAcceptance.OnlyBetter;
 import moveAcceptance.RecordToRecord;
 import moveAcceptance.SimulatedAnnealing;
+import selection.FRRMAB;
 import selection.SelectionMethod;
-import selection.mabSelection;
+import selection.MabSelection;
+import selection.SLFRMAB;
 import util.Vars;
 
 @SuppressWarnings("unused")
@@ -94,7 +96,7 @@ public class MABHH extends HyperHeuristic {
 
     private void initializeHeuristicSelection() {
         Vars.calculateDHSParams(numberOfHeuristics, Vars.PLFactor);
-        selection = new mabSelection(numberOfHeuristics, this.scalingFactor, rng);
+        selection = new FRRMAB(numberOfHeuristics, this.scalingFactor, rng);
     }
 
     private void initializeMoveAcceptance() {

@@ -17,8 +17,7 @@ import util.Vars;
  *
  * @author asferreira
  */
-public class mabSelection extends SelectionMethod {
-
+public abstract class MabSelection extends SelectionMethod {
 
     public enum LevelOfChangeType {
 
@@ -54,7 +53,12 @@ public class mabSelection extends SelectionMethod {
     private double calc[];
     private Random r;
 
-    public mabSelection(int numberOfHeuristics, double scalingFactor, Random r) {
+    @Override
+    public abstract void updateHeuristicValue(double delta, int heuristic, int k);
+
+    public abstract void addToSlidingWindow(Operator op);
+
+    public MabSelection(int numberOfHeuristics, double scalingFactor, Random r) {
         super(numberOfHeuristics, r);
         nHeutrials = new double[numberOfHeuristics];
         qH = new double[numberOfHeuristics];
@@ -66,7 +70,7 @@ public class mabSelection extends SelectionMethod {
         creditAssignment = new CreditAssignment();
         slidingWindow = new LinkedList();
         this.r = r;
-	this.W  = Vars.windowSize;
+        this.W = Vars.windowSize;
         for (int i = 0; i < numberOfHeuristics; i++) {
             last[i] = 0;
             hSelected[i] = false;
@@ -99,23 +103,12 @@ public class mabSelection extends SelectionMethod {
     }
 
     @Override
-    public void updateHeuristicValue(double delta, int heuristic, int k) {
-        //if(delta != 0){
-            addToSlidingWindow(new Operator(heuristic, delta));
-        //}
-        reward = creditAssignment.getReward(heuristic, 1, false, slidingWindow, numberOfHeuristics);
-        qH[heuristic] = reward * (1.0 / (nHeutrials[heuristic] + 1.0));
-        //nHeutrials[heuristic] = nHeutrials[heuristic] * (double) slidingWindow.size() / (double) (slidingWindow.size() + ((double) k - last[heuristic])) + (1.0 / (nHeutrials[heuristic] + 1.0));
-        //
-        //last[heuristic] = k;
-    }
-
-    @Override
     public void updateSelectionElements(int heuristicIndex, HeuristicClassType heuristicClassType,
             double fitnessBefore, double fitnessAfter, double bestFitness,
             long heursiticStartTime, long heursiticEndTime, double[] learningMultRateList, PerformanceElements currPerformance) {
 
-        if (fitnessAfter > fitnessBefore) { /* If the fitness value of the new solution is worse than the earlier solution */        	
+        if (fitnessAfter > fitnessBefore) { /* If the fitness value of the new solution is worse than the earlier solution */
+
             updateLevelOfChange(LevelOfChangeType.Worsening, heuristicClassType, heuristicIndex);
             //System.out.println("\nWorsening...");
         } else if (fitnessAfter < fitnessBefore) { /* If the fitness value of the new solution is better than the earlier solution */
@@ -352,29 +345,7 @@ public class mabSelection extends SelectionMethod {
         }
         return sum;
     }
-    
-    public void setWindowSize(double size){
-        this.W = size;
-    }
 
-    private void addToSlidingWindow(Operator op) {
-        if (slidingWindow.size() == W) {
-            int hIndx = slidingWindow.removeFirst().getOperatorId();
-            nHeutrials[hIndx]--;
-            slidingWindow.addLast(op);
-        } else {
-            
-            slidingWindow.addLast(op);
-        }
-        nHeutrials[op.getOperatorId()]++;
-    }
-
-    @Override
-    public double[] getLevelOfChangeList() {
-        return levelOfChangeList;
-    }
-    
-    
     @Override
     public void printWindow() {
         System.out.println("XValores heuristicas");
@@ -387,4 +358,76 @@ public class mabSelection extends SelectionMethod {
         }
         System.out.println("");
     }
+
+    public double[] getLast() {
+        return last;
+    }
+
+    public void setLast(double[] last) {
+        this.last = last;
+    }
+
+    
+    
+    @Override
+    public double[] getLevelOfChangeList() {
+        return levelOfChangeList;
+    }
+
+    public LinkedList<Operator> getSlidingWindow() {
+        return slidingWindow;
+    }
+
+    public void setSlidingWindow(LinkedList<Operator> slidingWindow) {
+        this.slidingWindow = slidingWindow;
+    }
+
+    public CreditAssignment getCreditAssignment() {
+        return creditAssignment;
+    }
+
+    public void setCreditAssignment(CreditAssignment creditAssignment) {
+        this.creditAssignment = creditAssignment;
+    }
+
+    public double getReward() {
+        return reward;
+    }
+
+    public void setReward(double reward) {
+        this.reward = reward;
+    }
+
+    public double getW() {
+        return W;
+    }
+
+    public void setW(double W) {
+        this.W = W;
+    }
+
+    public double[] getnHeutrials() {
+        return nHeutrials;
+    }
+
+    public void setnHeutrials(double[] nHeutrials) {
+        this.nHeutrials = nHeutrials;
+    }
+
+    public double[] getqH() {
+        return qH;
+    }
+
+    public void setqH(double[] qH) {
+        this.qH = qH;
+    }
+
+    public Random getR() {
+        return r;
+    }
+
+    public void setR(Random r) {
+        this.r = r;
+    }
+
 }
