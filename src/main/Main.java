@@ -66,6 +66,15 @@ public class Main {
             Vars.scalingFactor = Double.parseDouble(args[4]);
             Vars.windowSize = Double.parseDouble(args[5]);
 	}
+        else if(args.length == 7){
+            problem = getProblem(args[0], seed);
+            instance = Integer.parseInt(args[1]);
+            timeLimit = Long.parseLong(args[2]);
+            acc = Integer.parseInt(args[3]);
+            Vars.scalingFactor = Double.parseDouble(args[4]);
+            Vars.windowSize = Double.parseDouble(args[5]);
+            Vars.mabType = Integer.parseInt(args[6]);
+        }
         problem.loadInstance(instance);
         System.out.println("Seed: " + seed);
         System.out.println("Scaling Factor: " + Vars.scalingFactor + " Tamanho da Window: " + Vars.windowSize);

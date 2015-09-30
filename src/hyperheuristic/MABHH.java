@@ -22,6 +22,7 @@ import selection.FRRMAB;
 import selection.SelectionMethod;
 import selection.MabSelection;
 import selection.SLFRMAB;
+import selection.SLMAB;
 import util.Vars;
 
 @SuppressWarnings("unused")
@@ -96,7 +97,20 @@ public class MABHH extends HyperHeuristic {
 
     private void initializeHeuristicSelection() {
         Vars.calculateDHSParams(numberOfHeuristics, Vars.PLFactor);
-        selection = new FRRMAB(numberOfHeuristics, this.scalingFactor, rng);
+        switch(Vars.mabType){
+            case 1:
+                System.out.println("Selection: SLFRMAB");
+                selection = new SLFRMAB(numberOfHeuristics, this.scalingFactor, rng);
+                break;
+            case 2:
+                System.out.println("Selection: FRRMAB");
+                selection = new FRRMAB(numberOfHeuristics, this.scalingFactor, rng);
+                break;
+            default:
+                System.out.println("Selection: SLMAB");
+                selection = new SLMAB(numberOfHeuristics, this.scalingFactor, rng);
+        }
+        
     }
 
     private void initializeMoveAcceptance() {

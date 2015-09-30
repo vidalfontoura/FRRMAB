@@ -35,7 +35,7 @@ public class BetterEqual extends AcceptanceCriterion {
         }
         //accept worse if 120 iterations been passed
         if(numberOfIterationsStuck == 120){
-            System.out.println("Aceitou Pior. Resetou!");
+            //System.out.println("Aceitou Pior. Resetou!");
             acp = true;
             numberOfIterationsStuck = 0;
         }
