@@ -22,9 +22,7 @@ public class FRRMAB extends MabSelection{
         addToSlidingWindow(new Operator(heuristic, delta));
         double rewards[] = new double [k];
         rewards = getCreditAssignment().getRankedRewards(heuristic, 1, false, getSlidingWindow(), numberOfHeuristics);
-        for(int i = 0; i < k; i++){
-            getqH()[i] = rewards[i];
-        }
+        getqH()[heuristic] = rewards[heuristic];
     }
     
     @Override
