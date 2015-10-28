@@ -6,11 +6,10 @@
             <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/moveAcceptance/AllMoves.java</file>
             <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/hyperheuristic/MABHH.java</file>
             <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/util/Vars.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/moveAcceptance/AcceptanceCriterion.java</file>
             <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/moveAcceptance/BetterEqual.java</file>
             <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/main/Main.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/selection/FRRMAB.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/creditAssingment/CreditAssignment.java</file>
-            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/selection/MabSelection.java</file>
+            <file>file:/C:/Users/Alexandre/Documents/FRMABgit/FRRMAB/src/moveAcceptance/GreatDeluge.java</file>
         </group>
     </open-files>
 </project-private>

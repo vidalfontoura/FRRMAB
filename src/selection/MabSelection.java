@@ -74,6 +74,7 @@ public abstract class MabSelection extends SelectionMethod {
         for (int i = 0; i < numberOfHeuristics; i++) {
             last[i] = 0;
             hSelected[i] = false;
+            //qH[i] = 0.0;
         }
 
         levelOfChangeList = new double[numberOfHeuristics];
@@ -93,6 +94,9 @@ public abstract class MabSelection extends SelectionMethod {
         } else {
             for (int j = 0; j < numberOfHeuristics; j++) {
                 //calc[j] = 0;
+                if(nHeutrials[j] <= 0){
+                    nHeutrials[j] = 1;
+                }
                 calc[j] = qH[j] + (Vars.scalingFactor * Math.sqrt(2 * Math.log(sumOfTrials(nHeutrials)) / nHeutrials[j]));
                 //System.out.println("Operador " + j + " :" + qH[j] + " " + (Vars.scalingFactor * Math.sqrt(2 * Math.log10(sumOfTrials(nHeutrials) / nHeutrials[j]))));
             }

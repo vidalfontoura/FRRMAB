@@ -32,12 +32,12 @@ public class Main {
         DecimalFormat fmt = new DecimalFormat("0.00");
         ProblemDomain problem;
         long timeLimit = 480000;
-        int instance = 5;
+        int instance = 7;
         //long seed = 1234;
         long seed = System.currentTimeMillis();
         int acc = 0;
         //double scalingFactor = 10.0;
-        problem = new SAT(seed);
+        problem = new BinPacking(seed);
         if (args.length == 1) {
             // problem = getProblem(args[0], seed)1
         } else if (args.length == 3) {

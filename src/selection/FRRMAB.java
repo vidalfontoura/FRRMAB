@@ -6,6 +6,7 @@
 package selection;
 
 import java.util.Random;
+import util.Vars;
 
 /**
  *
@@ -20,19 +21,18 @@ public class FRRMAB extends MabSelection{
     @Override
     public void updateHeuristicValue(double delta, int heuristic, int k) {
         addToSlidingWindow(new Operator(heuristic, delta));
-        double rewards[] = new double [k];
+        double rewards[] = new double[k];
         rewards = getCreditAssignment().getRankedRewards(heuristic, 1, false, getSlidingWindow(), numberOfHeuristics);
         getqH()[heuristic] = rewards[heuristic];
     }
     
     @Override
     public void addToSlidingWindow(Operator op) {
-        if (getSlidingWindow().size() == getW()) {
+        if (getSlidingWindow().size() == Vars.windowSize) {
             int hIndx = getSlidingWindow().removeFirst().getOperatorId();
             getnHeutrials()[hIndx]--;
             getSlidingWindow().addLast(op);
         } else {
-
             getSlidingWindow().addLast(op);
         }
         getnHeutrials()[op.getOperatorId()]++;

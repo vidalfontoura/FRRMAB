@@ -6,6 +6,7 @@
 package selection;
 
 import java.util.Random;
+import util.Vars;
 
 /**
  *
@@ -26,12 +27,11 @@ public class SLFRMAB extends MabSelection {
 
     @Override
     public void addToSlidingWindow(Operator op) {
-        if (getSlidingWindow().size() == getW()) {
+        if (getSlidingWindow().size() == Vars.windowSize) {
             int hIndx = getSlidingWindow().removeFirst().getOperatorId();
             getnHeutrials()[hIndx]--;
             getSlidingWindow().addLast(op);
         } else {
-
             getSlidingWindow().addLast(op);
         }
         getnHeutrials()[op.getOperatorId()]++;

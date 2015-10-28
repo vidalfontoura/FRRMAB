@@ -77,8 +77,14 @@ public class CreditAssignment {
             decayValues[ranks[i]] = Math.pow(D, (double) i) * valueOps[ranks[i]];
             decaySum += decayValues[i];
         }
-        for (int i = 0; i < K; i++) {
-            rewards[i]  = decayValues[i]/decaySum;   
+        if(decaySum == 0){
+            for (int i = 0; i < K; i++) {
+                rewards[i]  = 0;   
+            }
+        }else{
+            for (int i = 0; i < K; i++) {
+                rewards[i]  = decayValues[i]/decaySum;   
+            }
         }
         return rewards;
     }
