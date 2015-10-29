@@ -321,10 +321,16 @@ public class MABHH extends HyperHeuristic {
         //double x[] = selection.getLevelOfChangeList();
         System.out.println("Vezes usada: ");
         for (int i = 0; i < numberOfHeuristics; i++) {
-            System.out.println("Heurística: " + i + " " + timesUsed[i] + " " + fmt.format(timesUsed[i] * 100.0 / numberOfIterations) + "% Tempo " + TimeUnit.NANOSECONDS.toMillis(totalTime[i]) + "ms");
+            System.out.println("Heurística: " + i + " " + timesUsed[i] + " " + fmt.format(timesUsed[i] * 100.0 / numberOfIterations) + "% Tempo " 
+                    + TimeUnit.NANOSECONDS.toMillis(totalTime[i]) + "ms worst: " + currPerfomance.getNumberOfWorseningMoves()[i] + " " +  
+                    fmt.format((currPerfomance.getNumberOfWorseningMoves()[i]*100)/timesUsed[i])        + "% equal: " + currPerfomance.getNumberOfEqualMoves()[i] +
+                    " " + fmt.format((currPerfomance.getNumberOfEqualMoves()[i]*100)/timesUsed[i]) +
+                    "% improv: " + currPerfomance.getNumberOfImprovingMoves()[i] +" "+ fmt.format((currPerfomance.getNumberOfImprovingMoves()[i]*100)/timesUsed[i])
+                    +"% best: " + currPerfomance.getNumberOfImprovingBestMoves()[i] + " " + 
+                    fmt.format((currPerfomance.getNumberOfImprovingBestMoves()[i]*100)/timesUsed[i]) + "%");
         }
         // System.out.println();
-        selection.printWindow();
+        //selection.printWindow();
     }
 
     private void performanceCheckForDHS() {
