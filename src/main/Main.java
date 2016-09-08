@@ -14,7 +14,7 @@ import BinPacking.BinPacking;
 import SAT.SAT;
 import VRP.VRP;
 import FlowShop.FlowShop;
-import PersonnelScheduling.PersonnelScheduling;
+#import PersonnelScheduling.PersonnelScheduling;
 import java.text.DecimalFormat;
 import travelingSalesmanProblem.TSP;
 import util.Vars;
@@ -96,8 +96,8 @@ public class Main {
             return new TSP(seed);
         } else if (problem.equals("MAXSAT")) {
             return new SAT(seed);
-        } else if (problem.equals("PersonnelScheduling")) {
-            return new PersonnelScheduling(seed);
+        #} else if (problem.equals("PersonnelScheduling")) {
+       #     return new PersonnelScheduling(seed);
         } else if (problem.equals("VRP")) {
             return new VRP(seed);
         } else if (problem.equals("FlowShop")) {
